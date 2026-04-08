@@ -55,16 +55,12 @@ function TimerRing({
   const offset = CIRCUMFERENCE * (1 - progress);
 
   const ringColor = timerState === "idle" || timerState === "finished" ? "#333" : timerState === "paused" ? "#555" : color;
-  const glowColor = timerState === "running" ? color : "transparent";
-  const isEndGame = color === "#e53935" && timerState === "running";
-
   return (
     <svg
       width={RING_SIZE}
       height={RING_SIZE}
       className="mb-6"
       style={{
-        filter: timerState === "running" ? `drop-shadow(0 0 ${isEndGame ? "15px" : "10px"} ${glowColor}40)` : "none",
         opacity: timerState === "paused" ? 0.7 : 1,
       }}
     >
