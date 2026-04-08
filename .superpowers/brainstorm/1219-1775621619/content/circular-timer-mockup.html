@@ -1,0 +1,90 @@
+<h2>Circular Timer — Layout Mockup</h2>
+<p class="subtitle">FRC 2026 REBUILT Teleop Timer</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">Idle State</div>
+    <div class="mockup-body" style="background:#1a1a2e;color:#e0e0e0;display:flex;flex-direction:column;align-items:center;padding:24px;font-family:system-ui;">
+      <!-- Phase indicator strip -->
+      <div style="display:flex;gap:4px;width:100%;justify-content:center;margin-bottom:24px;">
+        <div style="flex:1;height:6px;border-radius:3px;background:#444;max-width:40px;" title="Transition"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#444;max-width:80px;" title="Shift 1"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#444;max-width:80px;" title="Shift 2"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#444;max-width:80px;" title="Shift 3"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#444;max-width:80px;" title="Shift 4"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#444;max-width:80px;" title="End Game"></div>
+      </div>
+
+      <div style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#888;margin-bottom:8px;">Ready</div>
+
+      <!-- Circular ring -->
+      <div style="width:180px;height:180px;border-radius:50%;border:8px solid #333;display:flex;align-items:center;justify-content:center;flex-direction:column;margin-bottom:24px;">
+        <div style="font-size:42px;font-weight:700;font-variant-numeric:tabular-nums;">2:20</div>
+        <div style="font-size:11px;color:#888;">TELEOP</div>
+      </div>
+
+      <!-- Start button -->
+      <div style="background:#4CAF50;color:white;padding:14px 48px;border-radius:12px;font-size:18px;font-weight:600;cursor:pointer;">START</div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">Active — Alliance Shift 2</div>
+    <div class="mockup-body" style="background:#1a1a2e;color:#e0e0e0;display:flex;flex-direction:column;align-items:center;padding:24px;font-family:system-ui;">
+      <!-- Phase indicator strip -->
+      <div style="display:flex;gap:4px;width:100%;justify-content:center;margin-bottom:24px;">
+        <div style="flex:1;height:6px;border-radius:3px;background:#4CAF50;max-width:40px;" title="Transition"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#4CAF50;max-width:80px;" title="Shift 1"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#FF9800;max-width:80px;" title="Shift 2 (active)"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#444;max-width:80px;" title="Shift 3"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#444;max-width:80px;" title="Shift 4"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#444;max-width:80px;" title="End Game"></div>
+      </div>
+
+      <div style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#FF9800;margin-bottom:8px;">Alliance Shift 2</div>
+
+      <!-- Circular ring with color -->
+      <div style="width:180px;height:180px;border-radius:50%;border:8px solid #FF9800;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;margin-bottom:24px;box-shadow:0 0 20px rgba(255,152,0,0.2);">
+        <div style="font-size:42px;font-weight:700;font-variant-numeric:tabular-nums;">1:33</div>
+        <div style="font-size:11px;color:#FF9800;">SHIFT 2 of 4</div>
+      </div>
+
+      <!-- Pause button -->
+      <div style="background:#666;color:white;padding:14px 48px;border-radius:12px;font-size:18px;font-weight:600;cursor:pointer;">PAUSE</div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px;">
+  <div class="mockup">
+    <div class="mockup-header">End Game Phase</div>
+    <div class="mockup-body" style="background:#1a1a2e;color:#e0e0e0;display:flex;flex-direction:column;align-items:center;padding:24px;font-family:system-ui;">
+      <!-- Phase indicator strip -->
+      <div style="display:flex;gap:4px;width:100%;justify-content:center;margin-bottom:24px;">
+        <div style="flex:1;height:6px;border-radius:3px;background:#4CAF50;max-width:40px;"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#4CAF50;max-width:80px;"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#4CAF50;max-width:80px;"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#4CAF50;max-width:80px;"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#4CAF50;max-width:80px;"></div>
+        <div style="flex:2;height:6px;border-radius:3px;background:#e53935;max-width:80px;"></div>
+      </div>
+
+      <div style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#e53935;margin-bottom:8px;animation:pulse 1s ease-in-out infinite alternate;">End Game</div>
+
+      <!-- Circular ring - red/urgent -->
+      <div style="width:180px;height:180px;border-radius:50%;border:8px solid #e53935;display:flex;align-items:center;justify-content:center;flex-direction:column;margin-bottom:24px;box-shadow:0 0 30px rgba(229,57,53,0.3);">
+        <div style="font-size:42px;font-weight:700;font-variant-numeric:tabular-nums;">0:18</div>
+        <div style="font-size:11px;color:#e53935;">ENDGAME</div>
+      </div>
+
+      <div style="background:#666;color:white;padding:14px 48px;border-radius:12px;font-size:18px;font-weight:600;cursor:pointer;">PAUSE</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes pulse {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+  }
+</style>
