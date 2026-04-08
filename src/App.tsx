@@ -7,14 +7,14 @@ function formatTime(seconds: number): string {
   return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
-const RING_SIZE = 200;
-const STROKE_WIDTH = 10;
+const RING_SIZE = 280;
+const STROKE_WIDTH = 12;
 const RADIUS = (RING_SIZE - STROKE_WIDTH) / 2;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 function PhaseStrip({ currentIndex, timerState }: { currentIndex: number; timerState: TimerState }) {
   return (
-    <div className="flex gap-1 w-full max-w-xs justify-center mb-6">
+    <div className="flex gap-1.5 w-full max-w-sm justify-center mb-8">
       {PHASES.map((phase, i) => {
         let bg: string;
         if (timerState === "idle") {
@@ -29,7 +29,7 @@ function PhaseStrip({ currentIndex, timerState }: { currentIndex: number; timerS
         return (
           <div
             key={i}
-            className="h-1.5 rounded-full"
+            className="h-2 rounded-full"
             style={{
               flex: phase.duration,
               backgroundColor: bg,
@@ -96,7 +96,7 @@ function TimerRing({
 }
 
 export function App() {
-  const { timeLeft, currentPhaseIndex, currentPhase, timerState, start, pause, resume, reset } =
+  const { timeLeft, phaseTimeLeft, currentPhaseIndex, currentPhase, timerState, start, pause, resume, reset } =
     useTimer();
 
   let phaseLabel: string;
@@ -148,14 +148,19 @@ export function App() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8 select-none">
+    <div className="flex flex-col items-center px-6 pt-12 pb-8 min-h-screen select-none">
       <PhaseStrip currentIndex={currentPhaseIndex} timerState={timerState} />
 
       <div
-        className="text-xs uppercase tracking-[0.2em] mb-2 transition-colors duration-300"
+        className="text-sm uppercase tracking-[0.2em] mb-3 transition-colors duration-300"
         style={{ color: labelColor }}
       >
         {phaseLabel}
+      </div>
+
+      {/* Match timer */}
+      <div className="text-6xl font-bold tabular-nums mb-10 text-white/60">
+        {formatTime(timeLeft)}
       </div>
 
       <div className="relative">
@@ -164,11 +169,13 @@ export function App() {
           color={currentPhase.color}
           timerState={timerState}
         />
-        {/* Centered text inside ring */}
+        {/* Shift timer centered inside ring */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <div className="text-5xl font-bold tabular-nums">{formatTime(timeLeft)}</div>
+          <div className="text-6xl font-bold tabular-nums">
+            {formatTime(timerState === "idle" ? currentPhase.duration : phaseTimeLeft)}
+          </div>
           <div
-            className="text-xs mt-1 transition-colors duration-300"
+            className="text-sm mt-3 transition-colors duration-300"
             style={{ color: timerState === "running" ? currentPhase.color : "#888" }}
           >
             {ringSubtitle}
@@ -178,7 +185,7 @@ export function App() {
 
       <button
         onClick={buttonAction}
-        className="px-12 py-3.5 rounded-xl text-lg font-semibold text-white transition-all duration-200 active:scale-95 cursor-pointer"
+        className="mt-8 px-16 py-4 rounded-xl text-xl font-semibold text-white transition-all duration-200 active:scale-95 cursor-pointer"
         style={{ backgroundColor: buttonColor }}
       >
         {buttonLabel}

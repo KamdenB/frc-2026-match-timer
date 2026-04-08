@@ -89,8 +89,16 @@ export function useTimer() {
   const currentPhaseIndex = getPhaseIndex(timeLeft);
   const currentPhase = PHASES[currentPhaseIndex];
 
+  // Calculate time remaining in the current phase
+  let elapsed = TOTAL_TIME - timeLeft;
+  for (let i = 0; i < currentPhaseIndex; i++) {
+    elapsed -= PHASES[i].duration;
+  }
+  const phaseTimeLeft = currentPhase.duration - elapsed;
+
   return {
     timeLeft,
+    phaseTimeLeft,
     currentPhaseIndex,
     currentPhase,
     timerState,
